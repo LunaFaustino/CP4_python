@@ -31,9 +31,6 @@ def listas():
     }
     return dicionario_de_listas
 
-
-
-
 def teste_vetor(vetor):
     print("\n\nVETOR: \n", vetor)
     print("\nOrdenação Buble Sort: ", ordenacao.Ordenacao.bubble_sort(vetor))
