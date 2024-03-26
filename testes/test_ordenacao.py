@@ -1,4 +1,7 @@
-from algoritmos import ordenacao
+import sys
+import os
+from algoritmos.ordenacao import Ordenacao
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../")
 import random
 
 def listas():
@@ -27,18 +30,21 @@ def listas():
         "lista_elementos_repetidos": lista_elementos_repetidos,
         "lista_aleatoria10": lista_aleatoria(10),
         "lista_aleatoria100": lista_aleatoria(100),
-        "lista_aleatoria1000": lista_aleatoria(100)
+        "lista_aleatoria1000": lista_aleatoria(1000)
     }
     return dicionario_de_listas
 
-def teste_vetor(vetor):
-    print("\n\nVETOR: \n", vetor)
-    print("\nOrdenação Buble Sort: ", ordenacao.Ordenacao.bubble_sort(vetor))
-    print("\nOrdenação selection_sort: ", ordenacao.Ordenacao.selection_sort(vetor))
-    print("\nOrdenação insertion_sort: ", ordenacao.Ordenacao.insertion_sort(vetor))
-    print("\nOrdenação merge_sort: ", ordenacao.Ordenacao.merge_sort(vetor))
-    print("\nOrdenação quick_sort: ", ordenacao.Ordenacao.quick_sort(vetor))
-    return()
+class TesteOrdenacao:
+    def teste_vetor(vetor):
+        print("\n\nVETOR: \n", vetor)
+        print("\nOrdenação Buble Sort: ", Ordenacao.bubble_sort(vetor))
+        print("\nOrdenação selection_sort: ", Ordenacao.selection_sort(vetor))
+        print("\nOrdenação insertion_sort: ", Ordenacao.insertion_sort(vetor))
+        print("\nOrdenação merge_sort: ", Ordenacao.merge_sort(vetor))
+        print("\nOrdenação quick_sort: ", Ordenacao.quick_sort(vetor))
+        return()
+    
+
     
 
 
