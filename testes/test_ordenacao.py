@@ -1,10 +1,10 @@
 import sys
 import os
-from algoritmos.ordenacao import Ordenacao
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../")
+from algoritmos.ordenacao import Ordenacao
 import random
 
-def listas():
+'''def listas():
     lista_ordenado_crescente = [3, 7, 33, 59, 71]
 
     lista_nao_ordenado= [71, 7, 3, 9, 7]
@@ -34,17 +34,35 @@ def listas():
     }
     return dicionario_de_listas
 
-class TesteOrdenacao:
-    def teste_vetor(vetor):
+def teste_vetor(vetor):
         print("\n\nVETOR: \n", vetor)
         print("\nOrdenação Buble Sort: ", Ordenacao.bubble_sort(vetor))
         print("\nOrdenação selection_sort: ", Ordenacao.selection_sort(vetor))
         print("\nOrdenação insertion_sort: ", Ordenacao.insertion_sort(vetor))
         print("\nOrdenação merge_sort: ", Ordenacao.merge_sort(vetor))
         print("\nOrdenação quick_sort: ", Ordenacao.quick_sort(vetor))
-        return()
-    
+        return()'''
 
-    
+class TesteOrdenacao:
+    def __init__(self) -> None:
+        self.lista_ordenado_crescente = [3, 7, 33, 59, 71]
+        self.lista_nao_ordenado = [71, 7, 3, 9, 7]
+        self.lista_ordenado_decrescente = [71, 59, 33, 7, 3]
+        self.lista_vazio = []
+        self.lista_unico_elemento = [42]
+        self.lista_elementos_repetidos = [3, 7, 3, 9, 7]
 
+    def test_bubblesort(self):
+        
 
+    def run_tests(self):
+        self.test_bubble_sort()
+        self.test_selection_sort()
+        self.test_insertion_sort()
+        self.test_merge_sort()
+        self.test_quick_sort()
+        print("Fim dos testes de ordenação.")
+
+if __name__ == '__main__':
+    testes = TesteOrdenacao()
+    testes.run_tests()

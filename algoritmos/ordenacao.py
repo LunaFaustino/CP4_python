@@ -72,18 +72,17 @@ class Ordenacao:
             fim = len(lista) - 1
 
         if inicio < fim:
-            pivote = Ordenacao.dividir(lista, inicio, fim)
-            Ordenacao.quick_sort(lista, inicio, pivote - 1)
-            Ordenacao.quick_sort(lista, pivote + 1, fim)
-        return lista
+            pivot = lista[fim]
+            i = inicio - 1
+            for j in range(inicio, fim):
+                if lista[j] <= pivot:
+                    i += 1
+                    lista[i], lista[j] = lista[j], lista[i]
+            lista[i + 1], lista[fim] = lista[fim], lista[i + 1]
 
-    @staticmethod
-    def dividir(lista, inicio, fim):
-        pivot = lista[fim]
-        i = inicio - 1
-        for j in range(inicio, fim):
-            if lista[j] <= pivot:
-                i += 1
-                lista[i], lista[j] = lista[j], lista[i]
-        lista[i + 1], lista[fim] = lista[fim], lista[i + 1]
-        return i + 1
+            pivot_index = i + 1
+
+            Ordenacao.quick_sort(lista, inicio, pivot_index - 1)
+            Ordenacao.quick_sort(lista, pivot_index + 1, fim)
+        
+        return lista
