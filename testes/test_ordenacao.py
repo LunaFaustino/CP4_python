@@ -2,66 +2,59 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + "/../")
 from algoritmos.ordenacao import Ordenacao
-import random
-
-'''def listas():
-    lista_ordenado_crescente = [3, 7, 33, 59, 71]
-
-    lista_nao_ordenado= [71, 7, 3, 9, 7]
-
-    lista_ordenado_decrescente= [71, 59, 33, 7, 3]
-
-    lista_vazio= []
-
-    lista_unico_elemento= [42]
-
-    lista_elementos_repetidos= [3, 7, 3, 9, 7]
-
-    def lista_aleatoria(tamanho_lista):
-        lista_aleatoria = random.sample(range(1, tamanho_lista+1), tamanho_lista) 
-        return lista_aleatoria
-
-    dicionario_de_listas = {
-        "lista_ordenado_crescente": lista_ordenado_crescente,
-        "lista_nao_ordenado": lista_nao_ordenado,
-        "lista_ordenado_decrescente": lista_ordenado_decrescente,
-        "lista_vazio": lista_vazio,
-        "lista_unico_elemento": lista_unico_elemento,
-        "lista_elementos_repetidos": lista_elementos_repetidos,
-        "lista_aleatoria10": lista_aleatoria(10),
-        "lista_aleatoria100": lista_aleatoria(100),
-        "lista_aleatoria1000": lista_aleatoria(1000)
-    }
-    return dicionario_de_listas
-
-def teste_vetor(vetor):
-        print("\n\nVETOR: \n", vetor)
-        print("\nOrdenação Buble Sort: ", Ordenacao.bubble_sort(vetor))
-        print("\nOrdenação selection_sort: ", Ordenacao.selection_sort(vetor))
-        print("\nOrdenação insertion_sort: ", Ordenacao.insertion_sort(vetor))
-        print("\nOrdenação merge_sort: ", Ordenacao.merge_sort(vetor))
-        print("\nOrdenação quick_sort: ", Ordenacao.quick_sort(vetor))
-        return()'''
 
 class TesteOrdenacao:
     def __init__(self) -> None:
-        self.lista_ordenado_crescente = [3, 7, 33, 59, 71]
-        self.lista_nao_ordenado = [71, 7, 3, 9, 7]
-        self.lista_ordenado_decrescente = [71, 59, 33, 7, 3]
-        self.lista_vazio = []
-        self.lista_unico_elemento = [42]
-        self.lista_elementos_repetidos = [3, 7, 3, 9, 7]
+        self.dicionario_de_listas = {
+        "lista ordenada crescente": [3, 7, 33, 59, 71],
+        "lista não ordenada": [71, 7, 3, 9, 7],
+        "lista ordenada decrescente": [71, 59, 33, 7, 3],
+        "lista vazia": [],
+        "lista de elemento único": [42],
+        "lista de elementos repetidos": [3, 7, 3, 9, 7]
+    }
 
-    def test_bubblesort(self):
-        
+    def test_bubble_sort(self):
+        for nome_lista, lista in self.dicionario_de_listas.items():
+            Ordenacao.bubble_sort(lista)
+            print(f"Lista ordenada para {nome_lista}: {lista}")
+
+    def test_selection_sort(self):
+        for nome_lista, lista in self.dicionario_de_listas.items():
+            lista_copy = lista[:]
+            Ordenacao.selection_sort(lista_copy)
+            print(f"Lista ordenada para {nome_lista}: {lista_copy}")
+
+    def test_insertion_sort(self):
+        for nome_lista, lista in self.dicionario_de_listas.items():
+            lista_copy = lista[:]
+            Ordenacao.insertion_sort(lista_copy)
+            print(f"Lista ordenada para {nome_lista}: {lista_copy}")
+
+    def test_merge_sort(self):
+        for nome_lista, lista in self.dicionario_de_listas.items():
+            lista_copy = lista[:]
+            Ordenacao.merge_sort(lista_copy)
+            print(f"Lista ordenada para {nome_lista}: {lista_copy}")
+
+    def test_quick_sort(self):
+        for nome_lista, lista in self.dicionario_de_listas.items():
+            lista_copy = lista[:]
+            Ordenacao.quick_sort(lista_copy)
+            print(f"Lista ordenada para {nome_lista}: {lista_copy}")
 
     def run_tests(self):
+        print("\nTestando Bubble Sort:\n")
         self.test_bubble_sort()
+        print("\nTeste Selection Sort:\n")
         self.test_selection_sort()
+        print("\nTeste Insertion Sort:\n")
         self.test_insertion_sort()
+        print("\nTeste Merge Sort:\n")
         self.test_merge_sort()
+        print("\nTeste Quick Sort\n")
         self.test_quick_sort()
-        print("Fim dos testes de ordenação.")
+        print("\nFim dos testes de ordenação.\n")
 
 if __name__ == '__main__':
     testes = TesteOrdenacao()
