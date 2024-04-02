@@ -30,9 +30,11 @@ class TesteBusca:
             return
 
     def run_tests(self):
+        print("\nTeste Busca Sequencial:\n")
         self.test_busca_sequencial()
+        print("\nTeste de Busca Binária:\n")
         self.test_busca_binaria()
-        print("Fim dos testes.")
+        print("\nFim dos testes.\n")
 
 if __name__ == '__main__':
     testes = TesteBusca()

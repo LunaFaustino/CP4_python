@@ -67,22 +67,16 @@ class Ordenacao:
         return lista
     
     @staticmethod
-    def quick_sort(lista, inicio=0, fim=None):
-        if fim is None:
-            fim = len(lista) - 1
-
-        if inicio < fim:
-            pivot = lista[fim]
-            i = inicio - 1
-            for j in range(inicio, fim):
-                if lista[j] <= pivot:
-                    i += 1
-                    lista[i], lista[j] = lista[j], lista[i]
-            lista[i + 1], lista[fim] = lista[fim], lista[i + 1]
-
-            pivot_index = i + 1
-
-            Ordenacao.quick_sort(lista, inicio, pivot_index - 1)
-            Ordenacao.quick_sort(lista, pivot_index + 1, fim)
-        
-        return lista
+    def quick_sort(lista):
+        if len(lista) <= 1:
+            return lista
+        pivot = lista[len(lista) // 2]
+        menores, iguais, maiores = [], [], []
+        for item in lista:
+            if item < pivot:
+                menores.append(item)
+            elif item == pivot:
+                iguais.append(item)
+            else:
+                maiores.append(item)
+        return Ordenacao.quick_sort(menores) + iguais + Ordenacao.quick_sort(maiores)

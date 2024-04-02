@@ -44,7 +44,7 @@ class TesteOrdenacao:
             print(f"Lista ordenada para {nome_lista}: {lista_copy}")
 
     def run_tests(self):
-        print("\nTestando Bubble Sort:\n")
+        print("\nTeste Bubble Sort:\n")
         self.test_bubble_sort()
         print("\nTeste Selection Sort:\n")
         self.test_selection_sort()
